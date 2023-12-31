@@ -1,0 +1,182 @@
+*{
+    font-family: sans-serif;
+}
+:root{
+    --aqua-color :#97FFF4;
+    --background-color :#04364A;
+}
+body{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 10px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+header nav{
+    margin-right: 150px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+header nav .active{
+    color: var(--aqua-color);
+}
+header nav a::before{
+    content: "";
+    width: 0px;
+    height: 2.5px;
+    position: absolute;
+    bottom: -5px;
+    background-color: white;
+    transition: .3s;
+}
+header nav .active::before{
+    background-color: var(--aqua-color);
+}
+header nav a:hover::before{
+    width: 50px;
+}
+.img-box{
+    width: 560px;
+    height: 560px;
+    position: relative;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-box img{
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 10px 10px 50px white;
+    background-color: var(--aqua-color);
+    width: 400px;
+    height: 400px;
+    position: absolute;
+}
+.text-box{
+    width: 50%;
+    margin: 20px 0px 0px 80px;
+    text-align: start;
+    position: relative;
+    color: white;
+}
+.text-box .skills{
+    color: var(--aqua-color);
+}
+.text-box h1{
+    font-size: 32px;
+    font-weight: 300;
+}
+.text-box .icon-box{
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0px;
+}
+.text-box .icon-box i{
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 6px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .2s;
+}
+.text-box .icon-box i:hover{
+    background-color: white;
+    color: var(--background-color);
+}
+.text-box button{
+    position: relative;
+    width: 150px;
+    height: 32px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+    color: white;
+}
+.text-box .downloadBtn{
+    margin-right: 15px;
+    color: black;
+}
+.text-box button::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    transition: .5s;
+    z-index: -1;
+}
+.text-box .downloadBtn::before{
+    right: 0;
+}
+.text-box .downloadBtn:hover{
+    color: white;
+}
+.text-box .downloadBtn:hover::before{
+    left: 0;
+    width: 0;
+}
+.text-box .contactBtn::before{
+    right: 0;
+    width: 0;
+}
+.text-box .contactBtn:hover{
+    color: black;
+}
+.text-box .contactBtn:hover::before{
+    left: 0;
+    width: 100%;
+}
+@keyframes loadAnimation {
+    100%{
+        width: 0;
+    }
+}
+header::before,
+.text-box::before,
+.img-box::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    transition: .5s;
+    z-index: 2;
+    animation: loadAnimation 1s ease forwards;
+}
+.text-box::before{
+    animation-delay:1s ;
+}
+.img-box::before{
+    animation-delay: 2s;
+}
